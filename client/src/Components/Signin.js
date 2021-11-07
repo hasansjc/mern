@@ -45,7 +45,13 @@ const Signin = () => {
 
     return (
         <>
+        <div className="main_div">
+
+        <div className="signin_container">
             <form className="log_form" method="POST">
+            <fieldset>
+                
+                    <legend>Sign In</legend>
 
                 <label htmlFor="lname">Email:</label><br />
                 <input type="text" id="email" name="email"
@@ -56,12 +62,12 @@ const Signin = () => {
                     onChange={handleInputs} value={userData.password} /><br />
 
                 <br />
-                <input type="submit" value="Submit" className="submit" onClick={postData} />
+                <input type="submit" value="Login" className="submit" onClick={postData} />
 
-
+                </fieldset>
             </form>
-
-
+            </div>
+            </div>
 
         </>
     )

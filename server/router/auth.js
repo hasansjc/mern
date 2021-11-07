@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 router.post('/register', async(req, res) => {
 
     const { name, email, phone, work, password, cpassword } = req.body;
-    if (!name || !email || !phone || !work || !password || !cpassword) {
+    if (!name || !email || !phone || !work || !password || !cpassword) { 
         res.status(422).json({ error: "plz enter valid data" });
         return (res.status(422))
     }
@@ -46,31 +46,19 @@ router.post('/login', async (req, res) => {
             return res.status(422).json({ error: "Please fill all the fields" })
         }
 
-        const userlogin = await Student.findOne({ email })
-       // console.log(userlogin);
+        const userlogin = await Student.findOne({ email })        // finding the requested user by email
         if (userlogin) {
-            console.log("inside if");
-            const isMatch = await bcrypt.compare(password, userlogin.password);
-            console.log(isMatch);
-
-            console.log("This is from app.js");
-
-            console.log(isMatch);
+            const isMatch = await bcrypt.compare(password, userlogin.password);   // checking whether passwords are matching or not
             if (!isMatch) {
                 res.status(422).json({ msg: "invalid credentials" })
             }
             else {
-                
-                console.log(userlogin);
-                const token = await userlogin.generateAuthToken();
-                console.log(token);
-
-                res.cookie("jwttoken",token,{
-                    //expires :new Date(Date.now()+300000) ,
-                    httpOnly :true
+                const token = await userlogin.generateAuthToken();  // generating token for further authentication
+                res.cookie("jwttoken",token,{                       // saving the token in the cookie named 
+                    expires :new Date(Date.now()+30000) ,          // jwttoken
+                    httpOnly:true
                 })
                 res.status(201).json({ msg: "user login successfully" })
-
             }
         }
         else {

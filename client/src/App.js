@@ -6,8 +6,9 @@ import Contact from './Components/Contact';
 import Signin from './Components/Signin';
 import Signup from './Components/Signup';
 import Logout from './Components/Logout';
-import {Route} from "react-router-dom";
+import {Route,Switch} from "react-router-dom";
 import React,{ createContext,useReducer,useEffect } from 'react';
+import Footer from './Footer';
 const UserContext = createContext()
 const initialState =false;
 const reducer = (state,action) =>{
@@ -27,12 +28,16 @@ function App() {
     <UserContext.Provider value={{state,dispatch}}>
 
     <Navbar/>
-      <Route exact path="/"> <Home/> </Route>
+     <Switch>
+     <Route exact path="/"> <Home/> </Route>
       <Route exact path="/Contact"> <Contact/> </Route>
       <Route exact path="/About"> <About/> </Route>
       <Route exact path="/Signin"> <Signin/> </Route>
       <Route exact path="/Signup"> <Signup/> </Route>
       <Route exact path="/Logout"> <Logout/> </Route>
+     </Switch>
+
+      <Footer/>
       
     </UserContext.Provider>
    

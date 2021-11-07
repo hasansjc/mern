@@ -3,7 +3,7 @@ import logo from '../images/logo.jpg'
 
 const Home = () => {
     return (
-        <div>
+        <div className="main_div">
             <p>Welcome</p>
             <h1> We are the MERN Developer</h1>
             <img src={logo} style={{height:'500px'}} alt="logo" />

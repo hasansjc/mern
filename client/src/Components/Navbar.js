@@ -8,22 +8,10 @@ const Navbar = () => {
   const { state, dispatch } = useContext(UserContext)
 
   const RenderMenu = () => {
-    // useEffect(() => {
-    //   alert(state)
-    //   if (state) localStorage.setItem('islogin', JSON.stringify(state))
-    // })
-    // useEffect(() => {
-
-    //   let cv = JSON.parse(localStorage.getItem('islogin'))
-    //   alert(cv);
-    //   if (cv) {
-    //     dispatch({ type: 'USERss', payload: true })
-    //   }
-
-    // })
+ 
     if (!state) {
       return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg  navbar-primary bg-dark">
           <div className="container">
             <img src={logo} style={{ height: '50px', margin: "10px" }} alt="logo" />
             <a className="navbar-brand" href="#">APEX CREATIVE DESIGN</a>
@@ -38,23 +26,23 @@ const Navbar = () => {
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
                 <li className="nav-item">
-                  <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
+                  <NavLink className="nav-link active linkss " style={{color:'green'}} aria-current="page" to="/">Home</NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="contact">Contact us</NavLink>
+                  <NavLink className="nav-link linkss " to="contact">Contact us</NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link " to="about">About us</NavLink>
+                  <NavLink className="nav-link linkss  " to="about">About us</NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link " to="signin">Signin</NavLink>
+                  <NavLink className="nav-link linkss " to="signin">Signin</NavLink>
                 </li>
 
                 <li className="nav-item">
-                  <NavLink className="nav-link" to="signup">Signup</NavLink>
+                  <NavLink className="nav-link linkss " to="signup">Signup</NavLink>
                 </li>
 
               </ul>

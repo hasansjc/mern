@@ -50,17 +50,16 @@ const studentSchema= new mongoose.Schema({
 
 studentSchema.pre("save",async function(next){
     if(this.isModified('password')){
-
-        this.password= await bcrypt.hash(this.password,8);
-        this.cpassword=undefined;
+        this.password= await bcrypt.hash(this.password,8);          //hashing the password for security
+        this.cpassword=undefined;                                   //removing confirm password field
     }
-    next();
+    next();    //  from here returns back to the registration code
 })
 
 // gernrating token while user login
 studentSchema.methods.generateAuthToken = async function () {
     try{ 
-       let token = await jwt.sign({_id:this._id},"mynameisahmedhasanandthisismysecretkeyofthisproject")
+       let token = await jwt.sign({_id:this._id},process.env.SECRET_KEY)
        this.tokens=this.tokens.concat({token:token})
        await this.save();
        return token;

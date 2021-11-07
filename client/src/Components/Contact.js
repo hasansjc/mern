@@ -55,38 +55,34 @@ function Contact() {
     
     return (
         <>
+        <div className="main_div">
+            
             <h1> Contact us</h1>
-            <div className="contact_info">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-lg-10 mx-auto d-flex justify-content-between">
-                            <div className="contactinfo_item d-flex justify-content-start align-items-center">
+            <div className="contact_header">
+                
+                            
                                 <div className="contactinfo_content">
                                     <div className="contactinfo-title">Phone</div>
                                     <div className="contactinfo_text">+91 9876543210</div>
                                 </div>
-                            </div>
+                            
 
-                            <div className="contactinfo_item d-flex justify-content-start align-items-center">
+                            
                                 <div className="contactinfo_content">
                                     <div className="contactinfo-title">Email</div>
                                     <div className="contactinfo_text">hasansjc@gmail.com</div>
                                 </div>
-                            </div>
+                            
 
-                            <div className="contactinfo_item d-flex justify-content-start align-items-center">
+                            
                                 <div className="contactinfo_content">
                                     <div className="contactinfo-title">Address</div>
                                     <div className="contactinfo_text">10/11 Garhi Kalan</div>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
 
-
-                <div>
+        <div className="contactus_container">
+                <div className="contact_info">
                     <form method="POST" className="reg_form" >
                     <div > <label htmlFor="name">Name:</label><br />
                         <i class="zmdi zmdi-account"></i>
@@ -102,7 +98,7 @@ function Contact() {
 
                         <label htmlFor="lname">Message:</label><br />
                         <i class="zmdi zmdi-email"></i>
-                        <textarea  id="message" onChange={handleInputs} value={userData.message} name="message" rows="10" col="30"/><br />
+                        <textarea  id="message" onChange={handleInputs} value={userData.message} name="message" rows="5" col="60"/><br />
                         
                         </div>
                     
@@ -110,6 +106,7 @@ function Contact() {
                         <input type="submit" value="Submit" className="submit"
                         onClick={sendContact}/>
                     </form>
+                </div>
                 </div>
             </div>
         </>
